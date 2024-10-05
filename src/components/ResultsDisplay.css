@@ -1,0 +1,55 @@
+.app-container {
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  .country-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .country-buttons button {
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .country-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .results-display {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .results-display h2 {
+    margin: 0 0 10px 0;
+  }

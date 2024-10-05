@@ -1,0 +1,382 @@
+/* Basic body styles */
+body {
+  background: linear-gradient(to bottom, #e9f5e9, #a3d9a3); /* Gradient background */
+  font-family: 'Arial', sans-serif; /* Font family */
+  margin: 0; /* Remove default margin */
+  padding: 20px; /* Add padding around the body */
+  color: #333; /* Default text color */
+}
+
+/* Main title styles */
+h1 {
+  text-align: center; /* Center align the text */
+  color: #3a763a; /* Dark green color for the title */
+  font-size: 3em; /* Increased font size for prominence */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+}
+
+/* Container for the entire application */
+.app-container {
+  max-width: 800px; /* Maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  padding: 30px; /* Padding inside the container */
+  border-radius: 15px; /* Rounded corners */
+  background: rgba(255, 255, 255, 0.95); /* Slightly opaque white background */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for a 3D effect */
+  animation: fadeIn 0.5s ease-in-out; /* Fade-in animation for the container */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+      opacity: 1; /* End with opacity 1 */
+  }
+}
+
+/* Control buttons container */
+.controls {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center align the buttons */
+  margin: 30px 0; /* Margin above and below */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+}
+
+/* Individual button styles */
+.controls button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 12px 24px; /* Padding inside the button */
+  margin: 8px; /* Margin around each button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and transform */
+  font-size: 1.2em; /* Slightly larger text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  position: relative; /* Position for pseudo-element */
+  overflow: hidden; /* Contain pseudo-element animations */
+}
+
+/* Pseudo-element for button hover effect */
+.controls button::after {
+  content: ''; /* Empty content for the effect */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 300%; /* Large width for the effect */
+  height: 300%; /* Large height for the effect */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+  border-radius: 50%; /* Round shape */
+  transform: translate(-50%, -50%) scale(0); /* Start scaled down */
+  transition: transform 0.5s; /* Smooth transition for scaling */
+  z-index: 0; /* Behind the button text */
+}
+
+/* Button hover effects */
+.controls button:hover::after {
+  transform: translate(-50%, -50%) scale(1); /* Scale to full size on hover */
+}
+
+.controls button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Results section styles */
+.results {
+  margin-top: 20px; /* Margin above */
+  padding: 20px; /* Padding inside the results box */
+  background-color: rgba(249, 249, 249, 0.9); /* Light grey background */
+  border: 2px solid #4caf50; /* Green border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Results header styles */
+.results h3 {
+  color: #3a763a; /* Dark green */
+  margin-bottom: 15px; /* Space below */
+  font-size: 1.8em; /* Larger header */
+}
+
+/* Individual results paragraph styles */
+.results p {
+  display: flex; /* Flexbox layout for alignment */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Margin above and below */
+  font-size: 1.1em; /* Increased font size */
+}
+
+.results p::before {
+  content: '🌍'; /* Example icon for results */
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.5em; /* Icon size */
+}
+
+/* Detailed box styles */
+.detailed-box {
+  background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+  border: 2px solid #4caf50; /* Green border */
+  padding: 20px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 20px; /* Margin above */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: transform 0.2s; /* Smooth scale effect */
+}
+
+.detailed-box:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.detailed-box h2 {
+  color: #3a763a; /* Dark green */
+  font-size: 1.8em; /* Larger header */
+  margin-bottom: 10px; /* Space below header */
+}
+
+/* Adjust parameters section styling */
+.parameter-form {
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Column direction */
+  margin-top: 20px; /* Margin above */
+  padding: 20px; /* Padding inside the form */
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: transform 0.2s; /* Smooth scale effect */
+}
+
+.parameter-form:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Label styles within the parameter form */
+.parameter-form label {
+  margin-bottom: 5px; /* Space below label */
+  color: #333; /* Darker text for labels */
+  font-weight: bold; /* Bold labels */
+}
+
+/* Input field styles for numbers and ranges */
+.parameter-form input[type="number"],
+.parameter-form input[type="range"] {
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside the input */
+  margin-bottom: 10px; /* Space below input */
+  font-size: 1em; /* Consistent font size */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+/* Focus styles for number and range inputs */
+.parameter-form input[type="number"]:focus,
+.parameter-form input[type="range"]:focus {
+  border-color: #4caf50; /* Green border on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Shadow on focus */
+}
+
+/* Range input styles */
+.parameter-form input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 100%; /* Full width */
+  height: 10px; /* Height of the track */
+  border-radius: 10px; /* Rounded edges for track */
+  background: linear-gradient(to right, #4caf50, #f44336); /* Green to Red gradient */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background 0.3s; /* Smooth transition for background */
+}
+
+/* Thumb styles for range input */
+.parameter-form input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none; /* Remove default styling */
+  width: 30px; /* Width of the thumb */
+  height: 30px; /* Height of the thumb */
+  border-radius: 50%; /* Round thumb */
+  background: #fff; /* White background for thumb */
+  border: 3px solid #4caf50; /* Green border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background 0.3s; /* Smooth transition */
+}
+/* Thumb hover styles for range input */
+.parameter-form input[type="range"]::-webkit-slider-thumb:hover {
+  background: #e0e0e0; /* Light grey on hover */
+}
+
+/* Track styles for range input */
+.parameter-form input[type="range"]::-webkit-slider-runnable-track {
+  border-radius: 10px; /* Rounded track edges */
+  height: 10px; /* Track height */
+}
+
+/* Firefox styles for range input */
+.parameter-form input[type="range"]::-moz-range-thumb {
+  width: 30px; /* Width of the thumb */
+  height: 30px; /* Height of the thumb */
+  border-radius: 50%; /* Round thumb */
+  background: #fff; /* White background for thumb */
+  border: 3px solid #4caf50; /* Green border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Track styles for range input in Firefox */
+.parameter-form input[type="range"]::-moz-range-track {
+  border-radius: 10px; /* Rounded track edges */
+  height: 10px; /* Track height */
+}
+
+/* Styles for the display box */
+.display-box {
+  position: relative; /* Relative positioning for the display box */
+  background-color: rgba(255, 255, 255, 0.9); /* Light background */
+  border: 2px solid #4caf50; /* Green border */
+  padding: 20px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  margin: 20px 0; /* Margin above and below */
+  z-index: 1; /* Above other elements */
+}
+
+/* Display box title styles */
+.display-box h2 {
+  color: #3a763a; /* Dark green */
+  font-size: 1.8em; /* Larger header */
+  margin-bottom: 10px; /* Space below header */
+}
+
+/* Display box content styles */
+.display-box p {
+  font-size: 1.1em; /* Increased font size */
+  margin: 5px 0; /* Margin above and below */
+}
+
+/* Footer styles */
+footer {
+  text-align: center; /* Center align footer */
+  margin-top: 30px; /* Margin above */
+  color: #666; /* Grey color for footer text */
+  font-size: 0.9em; /* Smaller font size */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .controls button {
+    width: 100%; /* Full width buttons */
+  }
+
+  .app-container {
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+
+  h1 {
+    font-size: 2.5em; /* Smaller title font size */
+  }
+
+  .results h3,
+  .detailed-box h2 {
+    font-size: 1.5em; /* Smaller headers for results and detailed box */
+  }
+
+  .parameter-form input[type="number"],
+  .parameter-form input[type="range"] {
+    font-size: 0.9em; /* Smaller input font size */
+  }
+}
+/* Additional media queries for improved responsiveness */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 2em; /* Further reduce title size for very small screens */
+  }
+
+  .controls button {
+    font-size: 1em; /* Smaller button text */
+    padding: 10px; /* Reduced padding for buttons */
+  }
+
+  .results p,
+  .country-stats p {
+    font-size: 0.9em; /* Smaller font size for paragraphs */
+  }
+
+  .detailed-box h2,
+  .country-stats h2 {
+    font-size: 1.3em; /* Smaller header size for details and country stats */
+  }
+}
+
+/* Specific styles for dark mode (optional) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(to bottom, #1e1e1e, #2a2a2a); /* Dark gradient background */
+    color: #f0f0f0; /* Light text color */
+  }
+
+  .app-container {
+    background: rgba(34, 34, 34, 0.95); /* Dark semi-transparent background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+  }
+
+  h1 {
+    color: #90ee90; /* Light green color for title */
+  }
+
+  .controls button {
+    background-color: #4caf50; /* Green background */
+  }
+
+  .controls button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  .results,
+  .country-stats {
+    background-color: rgba(50, 50, 50, 0.9); /* Dark grey background */
+    border: 2px solid #4caf50; /* Green border */
+  }
+
+  .results h3,
+  .country-stats h2 {
+    color: #90ee90; /* Light green headers */
+  }
+
+
+}/* Detailed box styles */
+.detailed-box {
+  background-color: rgba(49, 49, 49, 0.9); /* Light grey background with transparency */
+  border: 2px solid #4caf50; /* Green border */
+  padding: 20px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 20px; /* Margin above */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: transform 0.2s; /* Smooth scale effect */
+}
+
+.detailed-box:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.detailed-box h2 {
+  color: #3a763a; /* Dark green */
+  font-size: 1.8em; /* Larger header */
+  margin-bottom: 10px; /* Space below header */
+}
+.parameter-form {
+  background: rgba(34, 34, 34, 0.95); /* Dark form background */
+}
+
+.parameter-form label,
+.parameter-form input[type="number"],
+.parameter-form input[type="range"] {
+  color: #f0f0f0; /* Light text for labels and inputs */
+}
