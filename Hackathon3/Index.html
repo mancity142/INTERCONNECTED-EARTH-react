@@ -226,7 +226,7 @@
     <div class="redirect-container">
         <h2>Explore More!</h2>
         <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
-        <a href="#" id="infoButton" class="submit-button">Get More Info</a> <!-- Renamed Button -->
+        <a href="#" id="infoButton" class="submit-button">Get More Info</a>
     </div>
 
     <footer>
@@ -245,27 +245,26 @@
                 if (userInput.includes('food chain') || userInput.includes('ecosystem')) {
                     feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire food chain.";
                 } else {
-                    feedbackElement.innerText = "That's an interesting perspective, but remember that one species can greatly impact its ecosystem!";
+                    feedbackElement.innerText = "That's an interesting perspective! Species extinction can have serious consequences.";
                 }
-
             } else if (type === 'pollution') {
                 userInput = document.getElementById('inputPollution').value.toLowerCase();
                 feedbackElement = document.getElementById('pollutionFeedback');
 
-                if (userInput.includes('toxins') || userInput.includes('habitat')) {
-                    feedbackElement.innerText = "Absolutely! Pollution can lead to dire consequences for marine ecosystems.";
+                if (userInput.includes('death') || userInput.includes('health')) {
+                    feedbackElement.innerText = "Correct! Pollution can severely affect marine life, leading to illness or death.";
                 } else {
-                    feedbackElement.innerText = "Good point! However, pollution has significant effects on marine life and their habitats.";
+                    feedbackElement.innerText = "Interesting thought! Pollution has various negative impacts on marine ecosystems.";
                 }
             }
         }
 
         document.getElementById('factButton').onclick = function() {
             const facts = [
-                "Did you know? Bees are responsible for 1 out of every 3 bites of food we take!",
-                "Ocean acidification is a significant threat to marine life.",
-                "Climate change is expected to push more than 100 million people into poverty by 2030.",
-                "Every minute, a truckload of plastic is dumped into the ocean!"
+                "Did you know? A single tree can absorb about 48 pounds of carbon dioxide per year.",
+                "Fact: Coral reefs support an estimated 25% of all marine life.",
+                "Interesting! It takes approximately 500 years for a plastic bottle to decompose.",
+                "Did you know? Over 1 million marine creatures are killed each year due to plastic pollution."
             ];
             const randomFact = facts[Math.floor(Math.random() * facts.length)];
             document.getElementById('fact').innerText = randomFact;
@@ -273,20 +272,25 @@
         };
 
         document.getElementById('simulatorButton').onclick = function() {
-            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/'; // Change this to your React app URL
+            console.log("Simulator button clicked!"); // Debugging
+            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
         };
 
         document.getElementById('redirectButton').onclick = function() {
-            window.location.href = 'https://api.meteomatics.com/2022-01-01T00:00:00Z--2024-10-08T00:00:00Z:PT1H/t_2m:C,precip_1h:mm,wind_speed_10m:ms/52.520551,13.461804/html'; // Update with the URL of the new page
+            // Your existing redirect logic (add actual redirection if necessary)
+            alert('Redirecting to a new page!'); // Placeholder
         };
 
         document.getElementById('infoButton').onclick = function() {
-            window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau1.html'; // Update with the URL for more info
+            // Your existing info logic (add actual info if necessary)
+            alert('Here’s some more information for you!'); // Placeholder
         };
 
         function showDetails(detailId) {
-            const detailElement = document.getElementById(detailId);
-            detailElement.classList.toggle('hidden');
+            const details = document.getElementById(detailId);
+            if (details) {
+                details.classList.toggle('hidden');
+            }
         }
     </script>
 </body>
