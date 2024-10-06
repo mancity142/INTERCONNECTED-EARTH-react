@@ -181,6 +181,7 @@
     </div>
 
     <div class="explore-button">
+        
         <button class="submit-button" id="factButton">Find Out More!</button>
         <p id="fact" class="hidden"></p>
     </div>
@@ -226,7 +227,6 @@
     <div class="redirect-container">
         <h2>Explore More!</h2>
         <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
-        <a href="#" id="newRedirectButton" class="submit-button">Go to Another Page</a> <!-- New Button -->
     </div>
 
     <footer>
@@ -243,42 +243,44 @@
                 feedbackElement = document.getElementById('speciesFeedback');
 
                 if (userInput.includes('food chain') || userInput.includes('ecosystem')) {
-                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire food chain.";
+                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire ecosystem!";
                 } else {
-                    feedbackElement.innerText = "That's an interesting thought! The extinction of a species can indeed have far-reaching effects.";
+                    feedbackElement.innerText = "Interesting thought! Remember, every species plays a role in its ecosystem.";
                 }
             } else if (type === 'pollution') {
                 userInput = document.getElementById('inputPollution').value.toLowerCase();
                 feedbackElement = document.getElementById('pollutionFeedback');
 
-                if (userInput.includes('death') || userInput.includes('coral reefs')) {
-                    feedbackElement.innerText = "Exactly! Pollution can cause severe harm to marine life.";
+                if (userInput.includes('harm') || userInput.includes('life')) {
+                    feedbackElement.innerText = "Exactly! Pollution can have devastating effects on marine ecosystems!";
                 } else {
-                    feedbackElement.innerText = "Interesting perspective! Pollution indeed affects marine ecosystems.";
+                    feedbackElement.innerText = "That's an interesting perspective! Pollution does impact marine life in many ways.";
                 }
             }
         }
 
-        document.getElementById('factButton').onclick = function() {
+        document.getElementById('factButton').addEventListener('click', function() {
             const facts = [
-                "Did you know that bees are responsible for pollinating 70 of the top 100 crops that feed 90% of the world?",
-                "More than 1 million marine creatures are killed each year due to plastic pollution.",
-                "The Amazon rainforest produces over 20% of the world's oxygen.",
-                "Climate change could force over 200 million people to become climate refugees by 2050.",
-                "Coral reefs are home to nearly 25% of all marine species, despite covering less than 1% of the ocean floor."
+                "Did you know? One tree can absorb up to 48 pounds of carbon dioxide per year.",
+                "Approximately 70% of the Earth's surface is covered by water.",
+                "Over 1 million species are at risk of extinction due to habitat loss and climate change."
             ];
             const randomFact = facts[Math.floor(Math.random() * facts.length)];
             document.getElementById('fact').innerText = randomFact;
             document.getElementById('fact').classList.remove('hidden');
-        };
+        });
 
-        document.getElementById('simulatorButton').onclick = function() {
-            window.location.href = "https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/";
-        };
+        document.getElementById('simulatorButton').addEventListener('click', function() {
+            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
+        });
+        document.getElementById('redirectButton').addEventListener('click', function() {
+    window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau2.html';
+});
+
 
         function showDetails(detailId) {
-            const detailElement = document.getElementById(detailId);
-            detailElement.classList.toggle('hidden');
+            const details = document.getElementById(detailId);
+            details.classList.toggle('hidden');
         }
     </script>
 </body>
