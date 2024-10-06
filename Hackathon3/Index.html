@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover the Interconnected Earth</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e2e2e2;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.5s;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 20px 0 10px;
+            color: #f39c12;
+        }
+
+        .interactive-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s;
+        }
+
+        .interactive-section:hover {
+            transform: scale(1.02);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            background: white;
+            color: #000;
+        }
+
+        .submit-button {
+            padding: 10px 15px;
+            font-size: 1.1em;
+            text-align: center;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #219150;
+            transform: translateY(-2px);
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .learn-more-container {
+            margin: 20px 0;
+        }
+
+        .learn-item {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        .learn-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .simulate-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.1em;
+            color: #d5d5d5;
+        }
+
+        #fact {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-style: italic;
+            color: #f39c12;
+        }
+
+        .redirect-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .redirect-container h2 {
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .redirect-button {
+            padding: 10px 15px;
+            font-size: 1.1em;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .redirect-button:hover {
+            background-color: #217dbb;
+            transform: translateY(-2px);
+        }
+        
+        .explore-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discover the Interconnected Earth</h1>
+        <p>Join us on an exciting journey to explore how everything on our planet is connected!</p>
+    </header>
+    
+    <div class="interactive-section">
+        <h2>Question 1: What do you think happens if one species goes extinct?</h2>
+        <input type="text" id="inputSpecies" placeholder="Type your answer here...">
+        <button class="submit-button" data-type="species" onclick="checkAnswer('species')">Submit</button>
+        <p id="speciesFeedback" class="feedback"></p>
+    </div>
+
+    <div class="interactive-section">
+        <h2>Question 2: How does pollution affect marine life?</h2>
+        <input type="text" id="inputPollution" placeholder="Type your answer here...">
+        <button class="submit-button" data-type="pollution" onclick="checkAnswer('pollution')">Submit</button>
+        <p id="pollutionFeedback" class="feedback"></p>
+    </div>
+
+    <div class="explore-button">
+        
+        <button class="submit-button" id="factButton">Find Out More!</button>
+        <p id="fact" class="hidden"></p>
+    </div>
+
+    <div class="learn-more-container">
+        <h2>Curious About More?</h2>
+        <div class="learn-item" onclick="showDetails('details1')">
+            <h3>Climate Change</h3>
+            <p>Click here to learn more!</p>
+            <div id="details1" class="hidden">
+                <p>Climate change affects weather patterns, sea levels, and biodiversity. How does it impact you?</p>
+            </div>
+        </div>
+        <div class="learn-item" onclick="showDetails('details2')">
+            <h3>Deforestation</h3>
+            <p>Click here to learn more!</p>
+            <div id="details2" class="hidden">
+                <p>Deforestation leads to loss of habitats and affects the climate. How can we stop it?</p>
+            </div>
+        </div>
+        <div class="learn-item" onclick="showDetails('details3')">
+            <h3>Ocean Pollution</h3>
+            <p>Click here to learn more!</p>
+            <div id="details3" class="hidden">
+                <p>Plastic waste in oceans harms marine life. What steps can you take to reduce plastic use?</p>
+            </div>
+        </div>
+        <div class="learn-item" onclick="showDetails('details4')">
+            <h3>Wildlife Conservation</h3>
+            <p>Click here to learn more!</p>
+            <div id="details4" class="hidden">
+                <p>Conservation efforts help protect endangered species and restore ecosystems. What role can you play?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="simulate-container">
+        <h2>Ready to Make an Impact?</h2>
+        <p>Explore how your choices affect the planet. Are you ready to simulate different scenarios?</p>
+        <button class="submit-button" id="simulatorButton">Go to Simulator!</button>
+    </div>
+
+    <div class="redirect-container">
+        <h2>Explore More!</h2>
+        <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
+    </div>
+
+    <footer>
+        <p>Thanks for exploring with us! Remember, every action counts!</p>
+    </footer>
+
+    <script>
+        function checkAnswer(type) {
+            let userInput = '';
+            let feedbackElement = null;
+
+            if (type === 'species') {
+                userInput = document.getElementById('inputSpecies').value.toLowerCase();
+                feedbackElement = document.getElementById('speciesFeedback');
+
+                if (userInput.includes('food chain') || userInput.includes('ecosystem')) {
+                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire ecosystem!";
+                } else {
+                    feedbackElement.innerText = "Interesting thought! Remember, every species plays a role in its ecosystem.";
+                }
+            } else if (type === 'pollution') {
+                userInput = document.getElementById('inputPollution').value.toLowerCase();
+                feedbackElement = document.getElementById('pollutionFeedback');
+
+                if (userInput.includes('harm') || userInput.includes('life')) {
+                    feedbackElement.innerText = "Exactly! Pollution can have devastating effects on marine ecosystems!";
+                } else {
+                    feedbackElement.innerText = "That's an interesting perspective! Pollution does impact marine life in many ways.";
+                }
+            }
+        }
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const facts = [
+                "Did you know? One tree can absorb up to 48 pounds of carbon dioxide per year.",
+                "Approximately 70% of the Earth's surface is covered by water.",
+                "Over 1 million species are at risk of extinction due to habitat loss and climate change."
+            ];
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('fact').innerText = randomFact;
+            document.getElementById('fact').classList.remove('hidden');
+        });
+
+        document.getElementById('simulatorButton').addEventListener('click', function() {
+            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
+        });
+        document.getElementById('redirectButton').addEventListener('click', function() {
+    window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau2.html';
+});
+
+
+        function showDetails(detailId) {
+            const details = document.getElementById(detailId);
+            details.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
