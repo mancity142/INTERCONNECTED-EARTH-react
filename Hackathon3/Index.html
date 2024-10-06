@@ -181,7 +181,6 @@
     </div>
 
     <div class="explore-button">
-        
         <button class="submit-button" id="factButton">Find Out More!</button>
         <p id="fact" class="hidden"></p>
     </div>
@@ -227,6 +226,7 @@
     <div class="redirect-container">
         <h2>Explore More!</h2>
         <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
+        <a href="#" id="newRedirectButton" class="submit-button">Go to Another Page</a> <!-- New Button -->
     </div>
 
     <footer>
@@ -243,45 +243,50 @@
                 feedbackElement = document.getElementById('speciesFeedback');
 
                 if (userInput.includes('food chain') || userInput.includes('ecosystem')) {
-                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire ecosystem!";
+                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire food chain.";
                 } else {
-                    feedbackElement.innerText = "Interesting thought! Remember, every species plays a role in its ecosystem.";
+                    feedbackElement.innerText = "That's an interesting thought! But remember, it can really affect the ecosystem.";
                 }
             } else if (type === 'pollution') {
                 userInput = document.getElementById('inputPollution').value.toLowerCase();
                 feedbackElement = document.getElementById('pollutionFeedback');
 
-                if (userInput.includes('harm') || userInput.includes('life')) {
-                    feedbackElement.innerText = "Exactly! Pollution can have devastating effects on marine ecosystems!";
+                if (userInput.includes('death') || userInput.includes('health')) {
+                    feedbackElement.innerText = "Exactly! Pollution can cause serious health issues in marine life.";
                 } else {
-                    feedbackElement.innerText = "That's an interesting perspective! Pollution does impact marine life in many ways.";
+                    feedbackElement.innerText = "Good point! Pollution does have severe effects on the ocean.";
                 }
             }
         }
 
         document.getElementById('factButton').addEventListener('click', function() {
             const facts = [
-                "Did you know? One tree can absorb up to 48 pounds of carbon dioxide per year.",
-                "Approximately 70% of the Earth's surface is covered by water.",
-                "Over 1 million species are at risk of extinction due to habitat loss and climate change."
+                "Over 1 million species are currently at risk of extinction.",
+                "Plastic pollution kills over 1 million marine creatures every year.",
+                "Deforestation contributes to 15% of greenhouse gas emissions.",
+                "Climate change has caused an increase in extreme weather events."
             ];
             const randomFact = facts[Math.floor(Math.random() * facts.length)];
             document.getElementById('fact').innerText = randomFact;
             document.getElementById('fact').classList.remove('hidden');
         });
 
-        document.getElementById('simulatorButton').addEventListener('click', function() {
-            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
-        });
-        document.getElementById('redirectButton').addEventListener('click', function() {
-    window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau2.html';
-});
-
-
         function showDetails(detailId) {
             const details = document.getElementById(detailId);
             details.classList.toggle('hidden');
         }
+
+        document.getElementById('simulatorButton').addEventListener('click', function() {
+            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
+        });
+
+        document.getElementById('newRedirectButton').addEventListener('click', function() {
+            window.location.href = 'https://api.meteomatics.com/2022-01-01T00:00:00Z--2024-10-08T00:00:00Z:PT1H/t_2m:C,precip_1h:mm,wind_speed_10m:ms/52.520551,13.461804/html';
+        });
+
+        document.getElementById('simulatorButton').addEventListener('click', function() {
+            window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau1.html';
+        });
     </script>
 </body>
 </html>
