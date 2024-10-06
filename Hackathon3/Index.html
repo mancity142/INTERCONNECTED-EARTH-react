@@ -153,7 +153,7 @@
             background-color: #217dbb;
             transform: translateY(-2px);
         }
-        
+
         .explore-button {
             text-align: center;
             margin-top: 20px;
@@ -181,7 +181,6 @@
     </div>
 
     <div class="explore-button">
-        
         <button class="submit-button" id="factButton">Find Out More!</button>
         <p id="fact" class="hidden"></p>
     </div>
@@ -227,6 +226,7 @@
     <div class="redirect-container">
         <h2>Explore More!</h2>
         <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
+        <a href="#" id="infoButton" class="submit-button">Get More Info</a> <!-- Renamed Button -->
     </div>
 
     <footer>
@@ -243,44 +243,50 @@
                 feedbackElement = document.getElementById('speciesFeedback');
 
                 if (userInput.includes('food chain') || userInput.includes('ecosystem')) {
-                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire ecosystem!";
+                    feedbackElement.innerText = "Great job! You're right! The extinction of one species can disrupt the entire food chain.";
                 } else {
-                    feedbackElement.innerText = "Interesting thought! Remember, every species plays a role in its ecosystem.";
+                    feedbackElement.innerText = "That's an interesting perspective, but remember that one species can greatly impact its ecosystem!";
                 }
+
             } else if (type === 'pollution') {
                 userInput = document.getElementById('inputPollution').value.toLowerCase();
                 feedbackElement = document.getElementById('pollutionFeedback');
 
-                if (userInput.includes('harm') || userInput.includes('life')) {
-                    feedbackElement.innerText = "Exactly! Pollution can have devastating effects on marine ecosystems!";
+                if (userInput.includes('toxins') || userInput.includes('habitat')) {
+                    feedbackElement.innerText = "Absolutely! Pollution can lead to dire consequences for marine ecosystems.";
                 } else {
-                    feedbackElement.innerText = "That's an interesting perspective! Pollution does impact marine life in many ways.";
+                    feedbackElement.innerText = "Good point! However, pollution has significant effects on marine life and their habitats.";
                 }
             }
         }
 
-        document.getElementById('factButton').addEventListener('click', function() {
+        document.getElementById('factButton').onclick = function() {
             const facts = [
-                "Did you know? One tree can absorb up to 48 pounds of carbon dioxide per year.",
-                "Approximately 70% of the Earth's surface is covered by water.",
-                "Over 1 million species are at risk of extinction due to habitat loss and climate change."
+                "Did you know? Bees are responsible for 1 out of every 3 bites of food we take!",
+                "Ocean acidification is a significant threat to marine life.",
+                "Climate change is expected to push more than 100 million people into poverty by 2030.",
+                "Every minute, a truckload of plastic is dumped into the ocean!"
             ];
             const randomFact = facts[Math.floor(Math.random() * facts.length)];
             document.getElementById('fact').innerText = randomFact;
             document.getElementById('fact').classList.remove('hidden');
-        });
+        };
 
-        document.getElementById('simulatorButton').addEventListener('click', function() {
-            window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
-        });
-        document.getElementById('redirectButton').addEventListener('click', function() {
-    window.location.href = 'file:///C:/Users/anton/Desktop/Hackathon3/Tableau2.html';
-});
+        document.getElementById('simulatorButton').onclick = function() {
+            window.location.href = 'YOUR_REACT_APP_URL_HERE'; // Change this to your React app URL
+        };
 
+        document.getElementById('redirectButton').onclick = function() {
+            window.location.href = 'NEW_PAGE_URL_HERE'; // Update with the URL of the new page
+        };
+
+        document.getElementById('infoButton').onclick = function() {
+            window.location.href = 'INFO_PAGE_URL_HERE'; // Update with the URL for more info
+        };
 
         function showDetails(detailId) {
-            const details = document.getElementById(detailId);
-            details.classList.toggle('hidden');
+            const detailElement = document.getElementById(detailId);
+            detailElement.classList.toggle('hidden');
         }
     </script>
 </body>
