@@ -185,48 +185,10 @@
         <p id="fact" class="hidden"></p>
     </div>
 
-    <div class="learn-more-container">
-        <h2>Curious About More?</h2>
-        <div class="learn-item" onclick="showDetails('details1')">
-            <h3>Climate Change</h3>
-            <p>Click here to learn more!</p>
-            <div id="details1" class="hidden">
-                <p>Climate change affects weather patterns, sea levels, and biodiversity. How does it impact you?</p>
-            </div>
-        </div>
-        <div class="learn-item" onclick="showDetails('details2')">
-            <h3>Deforestation</h3>
-            <p>Click here to learn more!</p>
-            <div id="details2" class="hidden">
-                <p>Deforestation leads to loss of habitats and affects the climate. How can we stop it?</p>
-            </div>
-        </div>
-        <div class="learn-item" onclick="showDetails('details3')">
-            <h3>Ocean Pollution</h3>
-            <p>Click here to learn more!</p>
-            <div id="details3" class="hidden">
-                <p>Plastic waste in oceans harms marine life. What steps can you take to reduce plastic use?</p>
-            </div>
-        </div>
-        <div class="learn-item" onclick="showDetails('details4')">
-            <h3>Wildlife Conservation</h3>
-            <p>Click here to learn more!</p>
-            <div id="details4" class="hidden">
-                <p>Conservation efforts help protect endangered species and restore ecosystems. What role can you play?</p>
-            </div>
-        </div>
-    </div>
-
     <div class="simulate-container">
         <h2>Ready to Make an Impact?</h2>
         <p>Explore how your choices affect the planet. Are you ready to simulate different scenarios?</p>
         <button class="submit-button" id="simulatorButton">Go to Simulator!</button>
-    </div>
-
-    <div class="redirect-container">
-        <h2>Explore More!</h2>
-        <a href="#" id="redirectButton" class="submit-button">Go to New Page</a>
-        <a href="#" id="infoButton" class="submit-button">Get More Info</a>
     </div>
 
     <footer>
@@ -247,6 +209,7 @@
                 } else {
                     feedbackElement.innerText = "That's an interesting perspective! Species extinction can have serious consequences.";
                 }
+
             } else if (type === 'pollution') {
                 userInput = document.getElementById('inputPollution').value.toLowerCase();
                 feedbackElement = document.getElementById('pollutionFeedback');
@@ -275,23 +238,6 @@
             console.log("Simulator button clicked!"); // Debugging
             window.location.href = 'https://Antony-Rubens.github.io/INTERCONNECTED-EARTH-react/';
         };
-
-        document.getElementById('redirectButton').onclick = function() {
-            // Your existing redirect logic (add actual redirection if necessary)
-            alert('Redirecting to a new page!'); // Placeholder
-        };
-
-        document.getElementById('infoButton').onclick = function() {
-            // Your existing info logic (add actual info if necessary)
-            alert('Here’s some more information for you!'); // Placeholder
-        };
-
-        function showDetails(detailId) {
-            const details = document.getElementById(detailId);
-            if (details) {
-                details.classList.toggle('hidden');
-            }
-        }
     </script>
 </body>
 </html>
